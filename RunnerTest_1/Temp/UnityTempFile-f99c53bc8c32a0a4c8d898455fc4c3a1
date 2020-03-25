@@ -1,14 +1,11 @@
 /target:library
 /nowarn:0169
-/out:Temp/Unity.ProBuilder.KdTree.dll
+/out:Temp/Assembly-CSharp.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
-/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -70,18 +67,32 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/Managed/UnityEditor.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll"
-/reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
-/reference:"C:/Users/dell/Desktop/Runner_2 REPO/RunnerTest_1/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll"
+/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.dll
+/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
+/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
 /reference:"C:/Users/dell/Desktop/Runner_2 REPO/RunnerTest_1/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll"
 /reference:"C:/Users/dell/Desktop/Runner_2 REPO/RunnerTest_1/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll"
 /reference:"C:/Users/dell/Desktop/Runner_2 REPO/RunnerTest_1/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll"
-/reference:"C:/Users/dell/Desktop/Runner_2 REPO/RunnerTest_1/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.3f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
@@ -293,15 +304,6 @@
 /define:UNITY_POST_PROCESSING_STACK_V2
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\AssemblyInfo.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\HyperRect.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\IKdTree.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\IPriorityQueue.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\KdTree.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\KdTreeNode.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\Math\DoubleMath.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\Math\FloatMath.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\Math\ITypeMath.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\Math\TypeMath.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\NearestNeighbourList.cs"
-"C:\Users\dell\Desktop\Runner_2 REPO\RunnerTest_1\Library\PackageCache\com.unity.probuilder@4.0.5\External\KdTree\KdTreeLib\PriorityQueue.cs"
+Assets\Scripts\CameraMovement.cs
+Assets\Scripts\FloorTileSpawnScript.cs
+Assets\Scripts\PlayerMovement.cs
