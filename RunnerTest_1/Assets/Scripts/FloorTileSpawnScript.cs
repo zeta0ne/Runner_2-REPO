@@ -8,26 +8,38 @@ public class FloorTileSpawnScript : MonoBehaviour
     public GameObject floorTile;
 
     public List<GameObject> floorTilesPool;
-    public int floorTilesPoolAmount = 20;
+    private int floorTilesPoolAmount = 20;
     public int floorTilesOnScreen = 10;
     private float floorTileLength = 10f;
- 
+    private float pos = 0;
+    private Transform playerTransform;
+    private Transform lastTileTransform;
+    private float safeZone = 50.0f;
+
+    private int howMany;
+
 
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        howMany = GameObject.FindGameObjectsWithTag("Floor Tile").Length;
+
+
+
         floorTilesPool = new List<GameObject>();
         for (int i = 0; i < floorTilesPoolAmount; i++)
         {
             GameObject myFloorTile = Instantiate(floorTile) as GameObject; //creates placeholder object and instantiates prefab into it
-            
             myFloorTile.SetActive(false); //object is deactivated for now
             myFloorTile.transform.SetParent(transform); //sets parent to this (empty spawner) object
             floorTilesPool.Add(myFloorTile); //adds obj to the list
         }
+
+        lastTileTransform = floorTilesPool[9].transform;
     }
 
-    public GameObject GetPooledObject()
+    GameObject GetPooledObject() //goes through the pool and hands out active objects
     {
         for (int i = 0; i < floorTilesPool.Count; i++)
         {
@@ -40,26 +52,59 @@ public class FloorTileSpawnScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    void FixedUpdate()
     {
-        GetPooledObject();
-        if (floorTile != null)
+        Debug.Log(lastTileTransform.position.z);
+        Debug.Log(howMany);
+
+        FloorSpawning();
+
+        if (playerTransform.position.z + safeZone > lastTileTransform.position.z)
+        {
+            DeactivateTile();
+            
+        }
+      
+    }
+
+    private void FloorSpawning()
+    {
+        if (GetPooledObject() != null && howMany < floorTilesOnScreen) //if there are any tiles in the pool...
         {
             for (int i = 0; i < floorTilesOnScreen; i++)
             {
-                floorTilesPool[i].SetActive(true);
-                floorTilesPool[i].transform.position = new Vector3(transform.position.x, transform.position.y, (transform.position.z + floorTileLength) * i);
+                SpawnTile();
             }
-        }  
+        }
     }
 
- 
-
-    void DeactivateTile()
-    {
-        floorTile.SetActive(false);
-    }
+    
    
+    void SpawnTile()
+    {
+        GameObject tile = GetPooledObject();
+        if (tile != null)
+        {
+                tile.SetActive(true);
+                tile.transform.position = Vector3.forward * pos;
+                pos += floorTileLength;
+        }
+        
+    }
 
-  
+   void DeactivateTile()
+    {
+        if (playerTransform.position.z > lastTileTransform.position.z)
+        {
+
+            for (int i = 0; i < 7; i++)
+            {
+                if (floorTilesPool[i].activeInHierarchy)
+                {
+                    floorTilesPool[i].SetActive(false);
+                }
+
+            }
+        }
+    }
 }
