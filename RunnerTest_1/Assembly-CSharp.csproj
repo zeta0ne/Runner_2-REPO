@@ -64,7 +64,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\FloorTileSpawnScript.cs" />
+    <Compile Include="Assets\Scripts\Placeholder.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\TileDestroyScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/dell/Desktop/Runner_2 REPO/RunnerTest_1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

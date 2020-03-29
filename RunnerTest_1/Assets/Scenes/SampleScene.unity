@@ -199,8 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorTile: {fileID: 5972743237866523219, guid: 7d7683f4b01125849b286d2d37079eca,
     type: 3}
-  floorTilesPool: []
-  floorTilesPoolAmount: 10
 --- !u!4 &2048275573
 Transform:
   m_ObjectHideFlags: 0

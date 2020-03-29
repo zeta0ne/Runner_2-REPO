@@ -4,107 +4,82 @@ using UnityEngine;
 
 public class FloorTileSpawnScript : MonoBehaviour
 {
-    //[SerializeField]
+    
     public GameObject floorTile;
 
-    public List<GameObject> floorTilesPool;
-    private int floorTilesPoolAmount = 20;
-    public int floorTilesOnScreen = 10;
-    private float floorTileLength = 10f;
-    private float pos = 0;
-    private Transform playerTransform;
-    private Transform lastTileTransform;
-    private float safeZone = 50.0f;
-
-    private int howMany;
+    private float poolAmount = 20;
+    private List<GameObject> tilesPool;
+    private float tileLength = 10.0f;
+    private float Zpos = -10.0f;
+    private int amountOfTilesOnScreen = 10;
+    private Transform playerT;
+    private float safeSpace = 15.0f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        howMany = GameObject.FindGameObjectsWithTag("Floor Tile").Length;
-
-
-
-        floorTilesPool = new List<GameObject>();
-        for (int i = 0; i < floorTilesPoolAmount; i++)
+        playerT = GameObject.FindGameObjectWithTag("Player").transform;
+        tilesPool = new List<GameObject>();
+        for (int i = 0; i < poolAmount; i++)
         {
-            GameObject myFloorTile = Instantiate(floorTile) as GameObject; //creates placeholder object and instantiates prefab into it
-            myFloorTile.SetActive(false); //object is deactivated for now
-            myFloorTile.transform.SetParent(transform); //sets parent to this (empty spawner) object
-            floorTilesPool.Add(myFloorTile); //adds obj to the list
+            GameObject obj = (GameObject)Instantiate(floorTile);
+            obj.SetActive(false);
+            obj.transform.SetParent(transform);
+            tilesPool.Add(obj);
         }
 
-        lastTileTransform = floorTilesPool[9].transform;
-    }
-
-    GameObject GetPooledObject() //goes through the pool and hands out active objects
-    {
-        for (int i = 0; i < floorTilesPool.Count; i++)
+        for (int i = 0; i < amountOfTilesOnScreen; i++)
         {
-            if (!floorTilesPool[i].activeInHierarchy)
-            {
-                return floorTilesPool[i];
-            }
-        }
-        return null;
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Debug.Log(lastTileTransform.position.z);
-        Debug.Log(howMany);
-
-        FloorSpawning();
-
-        if (playerTransform.position.z + safeZone > lastTileTransform.position.z)
-        {
-            DeactivateTile();
-            
-        }
-      
-    }
-
-    private void FloorSpawning()
-    {
-        if (GetPooledObject() != null && howMany < floorTilesOnScreen) //if there are any tiles in the pool...
-        {
-            for (int i = 0; i < floorTilesOnScreen; i++)
-            {
-                SpawnTile();
-            }
-        }
-    }
-
-    
-   
-    void SpawnTile()
-    {
-        GameObject tile = GetPooledObject();
-        if (tile != null)
-        {
-                tile.SetActive(true);
-                tile.transform.position = Vector3.forward * pos;
-                pos += floorTileLength;
+            TileSpawn();
         }
         
     }
 
-   void DeactivateTile()
+    private void FixedUpdate()
     {
-        if (playerTransform.position.z > lastTileTransform.position.z)
+        Debug.Log(GameObject.FindGameObjectsWithTag("Floor Tile").Length);
+
+        if (playerT.position.z - safeSpace > (Zpos - amountOfTilesOnScreen * tileLength))
         {
+            TileSpawn();
+            DeactivateTile();
+        }
+        
 
-            for (int i = 0; i < 7; i++)
+    }
+
+    void TileSpawn()
+    {
+        for (int i = 0; i < amountOfTilesOnScreen; i++)
+        {
+            if (!tilesPool[i].activeInHierarchy)
             {
-                if (floorTilesPool[i].activeInHierarchy)
-                {
-                    floorTilesPool[i].SetActive(false);
-                }
-
+                tilesPool[i].SetActive(true);
+                tilesPool[i].transform.position = Vector3.forward * Zpos;
+                Zpos += tileLength;
+                //break;
             }
         }
     }
+
+    void DeactivateTile()
+    {
+        for (int i = 0; i < amountOfTilesOnScreen; i++)
+        {
+            if (tilesPool[i].activeInHierarchy)
+            {
+                tilesPool[i].SetActive(false);
+                break;
+            }
+        }
+    }
+
+    /*void TileSpawnOne()
+    {
+        GameObject obj;
+        obj = Instantiate(floorTile) as GameObject;
+        obj.transform.SetParent(transform);
+        obj.transform.position = Vector3.forward * Zpos;
+        Zpos += tileLength;
+    } */
 }

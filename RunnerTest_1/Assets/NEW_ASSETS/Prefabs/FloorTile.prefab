@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8057414260762583234}
   - component: {fileID: 7161713227240389200}
   - component: {fileID: 4480680685028952544}
+  - component: {fileID: -2168991976151319896}
   m_Layer: 0
   m_Name: FloorTile
   m_TagString: Floor Tile
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5972743237866523219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 40000}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -168,3 +169,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!114 &-2168991976151319896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972743237866523219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61e7ba2cfb5d9c478d3d438e98b2a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
