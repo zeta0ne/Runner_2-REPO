@@ -7,28 +7,29 @@ public class FloorTileSpawnScript : MonoBehaviour
     
     public GameObject floorTile;
 
-    private float poolAmount = 20;
+    private int poolSize = 20;
     private List<GameObject> tilesPool;
     private float tileLength = 10.0f;
     private float Zpos = -10.0f;
     private int amountOfTilesOnScreen = 10;
-    private Transform playerT;
+    private Transform playerTr;
     private float safeSpace = 15.0f;
 
 
     void Start()
     {
-        playerT = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTr = GameObject.FindGameObjectWithTag("Player").transform;
+
         tilesPool = new List<GameObject>();
-        for (int i = 0; i < poolAmount; i++)
+        for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = (GameObject)Instantiate(floorTile);
+            GameObject obj = Instantiate(floorTile);
             obj.SetActive(false);
             obj.transform.SetParent(transform);
             tilesPool.Add(obj);
         }
 
-        for (int i = 0; i < amountOfTilesOnScreen; i++)
+        for (int i = 0; i < amountOfTilesOnScreen; i++) 
         {
             TileSpawn();
         }
@@ -37,34 +38,32 @@ public class FloorTileSpawnScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("Floor Tile").Length);
+        Debug.Log(GameObject.FindGameObjectsWithTag("Floor Tile").Length); 
 
-        if (playerT.position.z - safeSpace > (Zpos - amountOfTilesOnScreen * tileLength))
+        if (playerTr.position.z - safeSpace > (Zpos - amountOfTilesOnScreen * tileLength))
         {
             TileSpawn();
             DeactivateTile();
         }
-        
-
     }
 
     void TileSpawn()
     {
-        for (int i = 0; i < amountOfTilesOnScreen; i++)
+        for (int i = 0; i < tilesPool.Count; i++)
         {
             if (!tilesPool[i].activeInHierarchy)
             {
                 tilesPool[i].SetActive(true);
                 tilesPool[i].transform.position = Vector3.forward * Zpos;
                 Zpos += tileLength;
-                //break;
+                break;
             }
         }
     }
 
     void DeactivateTile()
     {
-        for (int i = 0; i < amountOfTilesOnScreen; i++)
+        for (int i = tilesPool.Count - 1; i >= 0; --i)
         {
             if (tilesPool[i].activeInHierarchy)
             {
@@ -73,13 +72,5 @@ public class FloorTileSpawnScript : MonoBehaviour
             }
         }
     }
-
-    /*void TileSpawnOne()
-    {
-        GameObject obj;
-        obj = Instantiate(floorTile) as GameObject;
-        obj.transform.SetParent(transform);
-        obj.transform.position = Vector3.forward * Zpos;
-        Zpos += tileLength;
-    } */
 }
+//for(i = pool.Count - 1; i >=0; —i)
